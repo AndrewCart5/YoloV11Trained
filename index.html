@@ -1,169 +1,175 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Weights for a trained YoloV11 model</title>
+  <title>YOLOv11 Trained Weights</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: #fafbfc;
+      margin: 0;
+      padding: 0 10px 30px 10px;
+      color: #222;
+    }
+    .container {
+      max-width: 900px;
+      margin: 40px auto;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.09);
+      padding: 32px 24px 40px 24px;
+    }
+    h1 {
+      color: #2b4b6f;
+      margin-bottom: 10px;
+      letter-spacing: 0.5px;
+      text-align: center;
+    }
+    h3 {
+      color: #34495e;
+      font-weight: 400;
+      margin-top: 0;
+      margin-bottom: 32px;
+      text-align: center;
+    }
+    .download-btn {
+      display: inline-block;
+      background: #007bff;
+      color: #fff !important;
+      padding: 12px 28px;
+      border-radius: 8px;
+      font-size: 1.1em;
+      text-decoration: none;
+      margin: 24px 0 16px 0;
+      box-shadow: 0 2px 6px rgba(0,123,255,0.05);
+      transition: background 0.2s;
+    }
+    .download-btn:hover {
+      background: #0056b3;
+    }
     table {
       border-collapse: collapse;
-      width: 90%;
-      margin-top: 20px;
+      width: 100%;
+      margin: 26px 0 34px 0;
+      font-size: 1em;
+      background: #f8fafc;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 1px 4px rgba(44,62,80,0.08);
     }
     th, td {
-      border: 1px solid #000;
-      padding: 8px 12px;
+      border: 1px solid #e3e7ea;
+      padding: 10px 14px;
       text-align: center;
     }
     th {
-      background-color: #f2f2f2;
+      background: #e8f0fe;
+      color: #184f90;
+      font-weight: 600;
     }
-    h1, p {
-      font-family: Arial, sans-serif;
+    tr:nth-child(even) td {
+      background: #f4f8fb;
+    }
+    tr:hover td {
+      background: #f0f4f8;
+    }
+    .table-title {
+      font-size: 1.08em;
+      color: #184f90;
+      margin-bottom: 5px;
+      font-weight: 500;
+    }
+    @media (max-width: 700px) {
+      .container { padding: 12px 2px; }
+      table, thead, tbody, th, td, tr {
+        display: block;
+      }
+      th, td {
+        border: none;
+        padding: 8px 6px;
+      }
+      tr { margin-bottom: 14px; }
+      th {
+        background: #e8f0fe;
+        position: sticky;
+        top: 0;
+      }
     }
   </style>
 </head>
 <body>
-  <h1>Trained YoloV11 model on various environmental indicators</h1>
- <h3>This is the weights for a trained yolov11 model capable of detecting multi-lane roads, single-lane roads, sidewalks, streetlights, and powerlines.</h3>
-<p>
-  <a href="best.pt" download style="font-size: 1.2em; color: #007bff; text-decoration: underline;">
-    &#128229; Download best.pt (YOLOv11 weights)
-  </a>
-</p>
-<p>The following shows how many images the model was trained, tested, and validated on:</p>
- 
-
-  <table>
-    <thead>
-      <tr>
-        <th>Set</th>
-        <th>Apartment</th>
-        <th>Streetlight</th>
-        <th>Sidewalk</th>
-        <th>Single-lane</th>
-        <th>Multilane</th>
-        <th>Powerline</th>
-        <th>Total</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Train</td>
-        <td>87</td>
-        <td>143</td>
-        <td>310</td>
-        <td>242</td>
-        <td>353</td>
-        <td>212</td>
-        <td>1343</td>
-      </tr>
-      <tr>
-        <td>Validation</td>
-        <td>25</td>
-        <td>41</td>
-        <td>88</td>
-        <td>69</td>
-        <td>101</td>
-        <td>59</td>
-        <td>383</td>
-      </tr>
-      <tr>
-        <td>Test</td>
-        <td>13</td>
-        <td>22</td>
-        <td>46</td>
-        <td>35</td>
-        <td>51</td>
-        <td>30</td>
-        <td>197</td>
-      </tr>
-      <tr>
-        <td><strong>Total</strong></td>
-        <td><strong>125</strong></td>
-        <td><strong>206</strong></td>
-        <td><strong>444</strong></td>
-        <td><strong>346</strong></td>
-        <td><strong>505</strong></td>
-        <td><strong>301</strong></td>
-        <td><strong>1927</strong></td>
-      </tr>
-    </tbody>
-  </table>
-
-  <p>The following is the accuracy of the model with these weights for each object:</p>
-
-  <table>
-    <thead>
-      <tr>
-        <th colspan="6">Overall Accuracy of YOLOv11</th>
-      </tr>
-      <tr>
-        <th>Class</th>
-        <th>Precision</th>
-        <th>Recall</th>
-        <th>F1 Score</th>
-        <th>mAP50</th>
-        <th>Accuracy (TP+FN / Total Predictions)</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Streetlight</td>
-        <td>0.993</td>
-        <td>0.995</td>
-        <td>0.99</td>
-        <td>1.00</td>
-        <td>1</td>
-      </tr>
-      <tr>
-        <td>Sidewalk</td>
-        <td>1</td>
-        <td>0.89</td>
-        <td>0.94</td>
-        <td>0.99</td>
-        <td>0.9695431472</td>
-      </tr>
-      <tr>
-        <td>Single-lane</td>
-        <td>0.938</td>
-        <td>0.871</td>
-        <td>0.90</td>
-        <td>0.98</td>
-        <td>0.9543147208</td>
-      </tr>
-      <tr>
-        <td>Multilane</td>
-        <td>0.949</td>
-        <td>1</td>
-        <td>0.97</td>
-        <td>0.99</td>
-        <td>0.9543147208</td>
-      </tr>
-      <tr>
-        <td>Powerline</td>
-        <td>1</td>
-        <td>0.981</td>
-        <td>0.99</td>
-        <td>1.00</td>
-        <td>1</td>
-      </tr>
-      <tr>
-        <td>Apartment</td>
-        <td>0.954</td>
-        <td>1</td>
-        <td>0.98</td>
-        <td>1.00</td>
-        <td>0.9949238579</td>
-      </tr>
-      <tr>
-        <th>Average</th>
-        <th>0.9723</th>
-        <th>0.9562</th>
-        <th>0.96</th>
-        <th>0.99</th>
-        <th>0.9788</th>
-      </tr>
-    </tbody>
-  </table>
-
+  <div class="container">
+    <h1>YOLOv11 Trained Weights</h1>
+    <h3>
+      Download the YOLOv11 model trained to detect:<br>
+      multilane roads, single-lane roads, sidewalks, streetlights, and powerlines.
+    </h3>
+    <a href="best.pt" download class="download-btn">&#128229; Download <strong>best.pt</strong> (YOLOv11 weights)</a>
+    <p class="table-title">Training Set Breakdown</p>
+    <table>
+      <thead>
+        <tr>
+          <th>Set</th>
+          <th>Apartment</th>
+          <th>Streetlight</th>
+          <th>Sidewalk</th>
+          <th>Single-lane</th>
+          <th>Multilane</th>
+          <th>Powerline</th>
+          <th>Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Train</td><td>87</td><td>143</td><td>310</td><td>242</td><td>353</td><td>212</td><td>1343</td>
+        </tr>
+        <tr>
+          <td>Validation</td><td>25</td><td>41</td><td>88</td><td>69</td><td>101</td><td>59</td><td>383</td>
+        </tr>
+        <tr>
+          <td>Test</td><td>13</td><td>22</td><td>46</td><td>35</td><td>51</td><td>30</td><td>197</td>
+        </tr>
+        <tr>
+          <td><strong>Total</strong></td>
+          <td><strong>125</strong></td>
+          <td><strong>206</strong></td>
+          <td><strong>444</strong></td>
+          <td><strong>346</strong></td>
+          <td><strong>505</strong></td>
+          <td><strong>301</strong></td>
+          <td><strong>1927</strong></td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="table-title">Model Accuracy by Object</p>
+    <table>
+      <thead>
+        <tr>
+          <th>Class</th>
+          <th>Precision</th>
+          <th>Recall</th>
+          <th>F1 Score</th>
+          <th>mAP50</th>
+          <th>Accuracy</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Streetlight</td><td>0.993</td><td>0.995</td><td>0.99</td><td>1.00</td><td>1</td></tr>
+        <tr><td>Sidewalk</td><td>1</td><td>0.89</td><td>0.94</td><td>0.99</td><td>0.9695</td></tr>
+        <tr><td>Single-lane</td><td>0.938</td><td>0.871</td><td>0.90</td><td>0.98</td><td>0.9543</td></tr>
+        <tr><td>Multilane</td><td>0.949</td><td>1</td><td>0.97</td><td>0.99</td><td>0.9543</td></tr>
+        <tr><td>Powerline</td><td>1</td><td>0.981</td><td>0.99</td><td>1.00</td><td>1</td></tr>
+        <tr><td>Apartment</td><td>0.954</td><td>1</td><td>0.98</td><td>1.00</td><td>0.9949</td></tr>
+        <tr>
+          <th>Average</th>
+          <th>0.972</th>
+          <th>0.956</th>
+          <th>0.96</th>
+          <th>0.99</th>
+          <th>0.9788</th>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </body>
 </html>
