@@ -5,7 +5,7 @@
   <style>
     table {
       border-collapse: collapse;
-      width: 80%;
+      width: 90%;
       margin-top: 20px;
     }
     th, td {
@@ -15,6 +15,9 @@
     }
     th {
       background-color: #f2f2f2;
+    }
+    h1, p {
+      font-family: Arial, sans-serif;
     }
   </style>
 </head>
@@ -80,6 +83,80 @@
   </table>
 
   <p>The following is the accuracy of the model with these weights for each object:</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th colspan="6">Overall Accuracy of YOLOv11</th>
+      </tr>
+      <tr>
+        <th>Class</th>
+        <th>Precision</th>
+        <th>Recall</th>
+        <th>F1 Score</th>
+        <th>mAP50</th>
+        <th>Accuracy (TP+FN / Total Predictions)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Streetlight</td>
+        <td>0.993</td>
+        <td>0.995</td>
+        <td>0.99</td>
+        <td>1.00</td>
+        <td>1</td>
+      </tr>
+      <tr>
+        <td>Sidewalk</td>
+        <td>1</td>
+        <td>0.89</td>
+        <td>0.94</td>
+        <td>0.99</td>
+        <td>0.9695431472</td>
+      </tr>
+      <tr>
+        <td>Single-lane</td>
+        <td>0.938</td>
+        <td>0.871</td>
+        <td>0.90</td>
+        <td>0.98</td>
+        <td>0.9543147208</td>
+      </tr>
+      <tr>
+        <td>Multilane</td>
+        <td>0.949</td>
+        <td>1</td>
+        <td>0.97</td>
+        <td>0.99</td>
+        <td>0.9543147208</td>
+      </tr>
+      <tr>
+        <td>Powerline</td>
+        <td>1</td>
+        <td>0.981</td>
+        <td>0.99</td>
+        <td>1.00</td>
+        <td>1</td>
+      </tr>
+      <tr>
+        <td>Apartment</td>
+        <td>0.954</td>
+        <td>1</td>
+        <td>0.98</td>
+        <td>1.00</td>
+        <td>0.9949238579</td>
+      </tr>
+      <tr>
+        <th>Average</th>
+        <th>0.9723</th>
+        <th>0.9562</th>
+        <th>0.96</th>
+        <th>0.99</th>
+        <th>0.9788</th>
+      </tr>
+    </tbody>
+  </table>
 
 </body>
 </html>
