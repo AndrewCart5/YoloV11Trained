@@ -201,6 +201,52 @@
   </figure>
   <!-- Repeat figure block for each image, incrementing caption number as needed -->
 </div>
+          <hr>
+      <h2 style="color:#2b4b6f; margin-top:36px;">YOLOv11 Training & Evaluation Code Example</h2>
+      <div style="background: #f4f8fb; border-radius: 8px; padding: 18px 20px 18px 22px; margin-top: 18px; font-size:1.06em; box-shadow: 0 2px 8px rgba(44,62,80,0.06);">
+        <pre style="margin-bottom: 20px; font-family: 'Fira Mono', 'Consolas', 'Menlo', monospace; font-size: 1em; background: #eef3f7; border-radius: 6px; padding: 14px 12px; line-height: 1.45; overflow-x: auto;">
+<span style="color:#184f90;"># --- Setup Code ---</span>
+from ultralytics import YOLO
+import torch
+
+# Check for GPU availability
+device = "cuda" if torch.cuda.is_available() else "cpu"
+if device == "cpu":
+    print("WARNING: CUDA not available, training on CPU.")
+
+# Load a model
+model = YOLO("yolo11n.pt")
+
+<span style="color:#184f90;"># --- Training Code ---</span>
+train_results = model.train(
+    data="C:\\Users\\ac0119\\PycharmProjects\\YOLOV92\\YOLOV9\\data\\YAMLFile.yaml",
+    epochs=20,         # Train for 20 epochs
+    imgsz=640,
+    device=device,
+)
+
+<span style="color:#184f90;"># --- Validation Code ---</span>
+metrics = model.val()
+print(metrics.box.map)      # mAP50-95
+print(metrics.box.map50)    # mAP50
+print(metrics.box.map75)    # mAP75
+print(metrics.box.maps)     # list of mAP50-95 for each category
+
+<span style="color:#184f90;"># --- Testing Code ---</span>
+test_metrics = model.val(
+    data="C:\\Users\\ac0119\\PycharmProjects\\YOLOV92\\YOLOV9\\data\\YAMLFile.yaml",
+    split="test"
+)
+
+print("Testing results")
+print(test_metrics.box.map)      # mAP50-95 on test set
+print(test_metrics.box.map50)    # mAP50 on test set
+print(test_metrics.box.map75)    # mAP75 on test set
+</pre>
+        <div style="color:#444; margin-top:8px; font-size:0.98em;">
+          <b>Tip:</b> Make sure your data paths and model filenames match your local setup. You can adjust <code>epochs</code> and <code>imgsz</code> as needed.
+        </div>
+      </div>
   </div>
 </body>
 </html>
